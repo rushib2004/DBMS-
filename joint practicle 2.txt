@@ -1,3 +1,6 @@
+Write at least10 SQL queries for suitable database application using SQL DML statements. d. Note: Instructor will design the queries which demonstrate the use of concepts like all types of Join ,Sub-Query and View
+
+
 create database demo;
 use demo;
 
