@@ -1,0 +1,61 @@
+CREATE DATABASE college;
+USE college;
+
+CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+INSERT INTO student (id, name) VALUES 
+(101, "aa"),
+(102, "bb"),
+(103, "cc");
+
+CREATE TABLE cource (
+    id INT PRIMARY KEY,
+    cource VARCHAR(50)
+);
+
+INSERT INTO cource (id, cource) VALUES 
+(101, "english"),
+(102, "math"),
+(103, "science"),
+(104, "hindi");
+
+-- INNER JOIN: Returns rows that have matching values in both tables
+SELECT student.id, student.name, cource.cource
+FROM student
+INNER JOIN cource ON student.id = cource.id;
+
+-- LEFT JOIN: Returns all rows from the left table, and the matched rows from the right table
+SELECT student.id, student.name, cource.cource
+FROM student
+LEFT JOIN cource ON student.id = cource.id;
+
+-- RIGHT JOIN: Returns all rows from the right table, and the matched rows from the left table
+SELECT student.id, student.name, cource.cource
+FROM student
+RIGHT JOIN cource ON student.id = cource.id;
+
+-- FULL OUTER JOIN: Returns all rows when there is a match in either left or right table
+SELECT student.id, student.name, cource.cource
+FROM student
+LEFT JOIN cource ON student.id = cource.id
+UNION
+SELECT student.id, student.name, cource.cource
+FROM student
+RIGHT JOIN cource ON student.id = cource.id;
+
+-- CROSS JOIN: Returns the Cartesian product of the two tables
+SELECT student.id, student.name, cource.cource
+FROM student
+CROSS JOIN cource;
+
+-- SELF JOIN: Used to join a table to itself
+SELECT A.id, A.name, B.name AS AnotherStudent
+FROM student A, student B
+WHERE A.id < B.id;
+
+-- Displaying the content of tables
+SELECT * FROM student;
+SELECT * FROM cource;

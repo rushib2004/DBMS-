@@ -1,0 +1,25 @@
+Write at least 10 SQL queries on the suitable database application using SQL DML statements.
+
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Email, DateOfBirth, DepartmentID)
+VALUES (seq_employee_id.NEXTVAL, 'John', 'Doe', 'john.doe@example.com', '1990-05-15', 1);
+UPDATE Employees
+SET Email = 'john.d.newemail@example.com'
+WHERE EmployeeID = 1;
+DELETE FROM Employees
+WHERE EmployeeID = 2;
+SELECT * FROM Employees;
+SELECT * FROM Employees
+WHERE DepartmentID = 1;
+SELECT * FROM Employees
+WHERE LastName = 'Smith';
+SELECT DepartmentID, COUNT(*) AS NumberOfEmployees
+FROM Employees
+GROUP BY DepartmentID;
+SELECT DepartmentID, AVG(DATEDIFF(year, DateOfBirth, GETDATE())) AS AverageAge
+FROM Employees
+GROUP BY DepartmentID;
+SELECT * FROM Employees
+WHERE Email LIKE '%@example.com';
+SELECT * FROM Employees
+ORDER BY LastName ASC;

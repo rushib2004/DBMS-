@@ -1,0 +1,41 @@
+create database demo;
+use demo;
+
+
+create table tb1 (name varchar(90) , roll_no int);
+insert into tb1 values ("a" , 1) , ("b",2) , ("c",3) , ("d",4);
+
+
+
+create table tb2 ( roll_no int , marks decimal );
+insert into tb2 values (1 , 100) , (2,72) , (3,93) , (4,47);
+
+
+-- join operations 
+
+-- left join 
+
+select name ,marks 
+from tb1 
+left join tb2 on tb1.roll_no = tb2.roll_no;
+
+
+-- right join 
+select name ,marks 
+from tb1 
+right join tb2 on tb1.roll_no = tb2.roll_no;
+
+-- inner join 
+select name ,marks 
+from tb1 
+ inner join tb2 on tb1.roll_no = tb2.roll_no;
+ 
+ -- full join 
+select name ,marks 
+from tb1 
+full join tb2 on tb1.roll_no = tb2.roll_no;
+
+ -- cross join 
+select name ,marks 
+from tb1 
+cross join tb2 on tb1.roll_no = tb2.roll_no;
